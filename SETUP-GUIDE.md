@@ -1,6 +1,6 @@
-# AI Dev Flow - Setup Guide
+# AI Dev Orchestrator - Setup Guide
 
-**Get started with AI Dev Flow in 10 minutes.**
+**Get started with AI Dev Orchestrator in 10 minutes.**
 
 ---
 
