@@ -6,6 +6,29 @@
 
 ---
 
+**Prompt:**
+I'm working on AI coding quite a lot at the moment. I'm using Replit to build quick proof of concepts and Claude code via GitHub to extend them. I've found a GitHub repo called "AIDevTasks" which explains to an AI how to build PRDs and tasks and then complete those tasks in a methodical way. I've also, via Gemini, researched a front-end type of methodology to create a design constitution and a few other files that help the AI to be more methodical. I am using quite basic prompts when I ask AI code to review its code or to come up with a plan, but I want to know is what are the prompts I should have and what are the roles that I should have for the different AI profiles that need to work on my code.  context: I'm not building big apps that lots of people are using. They're mostly internal tools, so I don't want to over-engineer too much, but I want to be a bit smarter than "You are a senior developer, please review my code."
+
+---
+
+**Research plan**
+AI Development Workflow and Prompting
+Research Websites
+(1) Locate and analyze the "AIDevTasks" GitHub repository to understand its methodology for creating Product Requirements Documents (PRDs) and breaking down tasks for AI execution.
+(2) Investigate the concept of a "design constitution" and related methodical files for front-end development, synthesizing how these documents guide a project.
+(3) Research frameworks for creating multi-persona AI development teams. Find distinct roles beyond "senior developer," such as "Solutions Architect," "Product Owner," "QA Engineer," and "DevOps Specialist," and define their responsibilities in a software lifecycle.
+(4) Find advanced, structured prompting techniques for the planning and architecture phase of an internal tool. This includes prompts for:
+(a) Generating a simple technical specification.
+(b) Defining data models or database schema.
+(c) Outlining API endpoints.
+(d) Creating a high-level implementation plan.
+(5) Find specific prompts for AI-assisted code review that go beyond generic feedback. Search for prompts that request checks for specific issues like adherence to a style guide, potential bugs, logic flaws, or security vulnerabilities.
+(6) Find prompt structures for generating concise documentation suitable for internal tools, such as updating a README file, writing code comments, or generating a simple user guide.
+(7) Explore prompting strategies for code refactoring and optimization, focusing on prompts that ask the AI to explain its reasoning for changes, balancing performance with maintainability.
+(8) Synthesize the findings into a practical guide. This guide should provide examples of how to assign a specific role (e.g., "You are a QA Engineer") and then use a specific prompt (e.g., "Review this function to find all edge cases and write unit tests for them") to achieve a smarter, more targeted workflow for internal tool development.
+
+---
+
 # The Orchestrator's Playbook: An Expert-Level Framework for AI-Driven Software Development
 
 ## Part 1: The Multi-Agent Team: A Framework for Intelligent AI Collaboration
