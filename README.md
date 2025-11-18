@@ -1,8 +1,18 @@
 # AI-Dev-Orchestrator
+This repo has been assembled by a non-coder who's trying to get more out of ai coding. I'm probably pushing the boundaries a little far in terms of what I can achieve without a developer but this is where I've got to so far. Would love to collaborate with anyone interested in this space.
+
+My journey:
+Replit: ask it to build a basic thing, end up pushing bugs all around the place (but it does the hosting well)
+Claude code: fix the replit apps, still pushing bugs but a little more effective.
+Discover AI Dev Tasks by Snarktank which opens my brain to the potential of a few documents to make a HUGE difference to the process but...
+I'm still not sure about the prompts I should use and the roles I need and what's the document that ties all of this together...?
+Enter a Gemini (2.5 pro) deep research article which finds a whole lot more insight which I've assembled here via a few prompts with Claude Opus 4.1 to make sure it's actually useful.
+Now comes the testing... I've started applying this to a couple of projects and will update this as I learn.
+The rest of this doc was assembled with AI
 
 **A structured framework for AI-driven software development.**
 
-Transform from "vibe coding" to orchestrating a specialized AI development team with proven prompts, personas, and workflows.
+Transform from "vibe coding" to orchestrating a specialized AI development team with prompts, personas, and workflows.
 
 ---
 
