@@ -16,9 +16,9 @@ Transform from "vibe coding" to orchestrating a specialized AI development team 
 
 ---
 
-## What is AI Dev Flow?
+## What is AI Dev Orchestrator?
 
-AI Dev Flow is a complete, research-backed framework for building software with AI assistance. Instead of asking a single AI to "write my app," you orchestrate a **team of specialized AI personas** through a proven **four-phase workflow**, using **copy-paste ready prompts** and **quality guardrails**.
+AI Dev Orchestrator is a complete, research-backed framework for building software with AI assistance. Instead of asking a single AI to "write my app," you orchestrate a **team of specialized AI personas** through a proven **four-phase workflow**, using **copy-paste ready prompts** and **quality guardrails**.
 
 **The result:** Professional, consistent, maintainable code without over-engineering.
 
@@ -32,7 +32,7 @@ Prompt: "You are a senior developer. Build me a password reset feature."
 Result: Inconsistent, over-engineered, or incomplete code
 ```
 
-AI Dev Flow approach (✅ structured):
+AI Dev Orchestrator approach (✅ structured):
 ```
 Phase 1: Product Owner    → Create PRD (requirements)
 Phase 1: Architect        → Create Tech Spec (design)
@@ -454,7 +454,7 @@ ai-dev-flow/
 This framework is compatible with and enhances [AI Dev Tasks](https://github.com/snarktank/ai-dev-tasks):
 
 - **AI Dev Tasks:** Provides task management and workflow structure
-- **AI Dev Flow:** Provides the personas, prompts, and quality guardrails
+- **AI Dev Orchestrator:** Provides the personas, prompts, and quality guardrails
 
 Use them together for maximum effectiveness.
 

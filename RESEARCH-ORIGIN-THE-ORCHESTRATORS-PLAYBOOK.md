@@ -2,7 +2,7 @@
 
 **Source:** Gemini Deep Research 2.5 Pro
 **Date:** 2025-11-14
-**Purpose:** Foundational research document that informed the AI Dev Flow framework
+**Purpose:** Foundational research document that informed the AI Dev Orchestrator framework
 
 ---
 
