@@ -1,5 +1,6 @@
 # AI-Dev-Orchestrator
-This repo has been assembled by a non-coder who's trying to get more out of ai coding. I'm probably pushing the boundaries a little far in terms of what I can achieve without a developer but this is where I've got to so far. Would love to collaborate with anyone interested in this space.
+This repo has been assembled by a non-coder who's trying to get more out of ai coding. I'm probably pushing the boundaries a little far in terms of what I can achieve without a human developer at the wheel but this is where I've got to so far. 
+Would love to collaborate with anyone interested in this space.
 
 My journey:
 - **Replit**: Built basic things, pushed bugs everywhere (but hosting works well)
