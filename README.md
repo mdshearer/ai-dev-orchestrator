@@ -9,6 +9,8 @@ My journey:
 - **Gemini 2.5 Pro deep research**: finds more insight, assembled via Claude Opus 4.1
 - **Now testing**: applying this to projects, will update as I learn
 
+Alright, thats the human done, the rest of this is the AI helping assemble everything together...
+
 
 **A structured framework for AI-driven software development.**
 
