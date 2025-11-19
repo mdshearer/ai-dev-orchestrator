@@ -404,15 +404,19 @@ Still not sure which template to use? Answer these questions:
 
 ---
 
-## Examples in the Wild
+## Real Examples
 
-Want to see real CONSTITUTION.md files? Check the `examples/` directory:
+Want to see real CONSTITUTION.md files in action? Check out these complete examples:
 
-- `examples/internal-tool/` - Expense tracker for 10-person team
-- `examples/client-app/` - SaaS analytics dashboard
-- `examples/ai-agent/` - Slack bot for customer support
+- **[Internal Tool:](../examples/internal-tool/CONSTITUTION.md)** Team expense tracker for 10-person sales team
+- **[Client App:](../examples/client-app/CONSTITUTION.md)** SaaS analytics dashboard (production-grade)
+- **[AI Agent:](../examples/ai-agent/CONSTITUTION.md)** Slack customer support bot
 
-**Pro tip:** Browse these examples before customizing your template. They show real-world decisions and trade-offs.
+**See what the output looks like:**
+- **[Sample PRD](../examples/sample-outputs/sample-prd.md)** - Product requirements document (dark mode feature)
+- **[Sample Tech Spec](../examples/sample-outputs/sample-tech-spec.md)** - Technical specification (dark mode implementation)
+
+**Want to contribute an example?** Open a PR!
 
 ---
 

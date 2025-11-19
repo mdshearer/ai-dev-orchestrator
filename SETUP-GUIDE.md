@@ -1,6 +1,6 @@
-# AI Dev Orchestrator - Setup Guide
+# AI-Dev-Orchestrator - Setup Guide
 
-**Get started with AI Dev Orchestrator in 10 minutes.**
+**Get started with AI-Dev-Orchestrator in 10 minutes.**
 
 ---
 
@@ -61,8 +61,8 @@ This is the **most important step**. The CONSTITUTION.md file defines the rules 
 ### Copy the Template
 
 ```bash
-# Copy from ai-dev-flow template
-cp /path/to/ai-dev-flow/CONSTITUTION-TEMPLATE.md ./CONSTITUTION.md
+# Copy from ai-dev-orchestrator template
+cp /path/to/ai-dev-orchestrator/CONSTITUTION-TEMPLATE.md ./CONSTITUTION.md
 ```
 
 ### Customize It
@@ -147,7 +147,7 @@ Have a clear idea of what you want to build. Examples:
 
 ### 3.2: Get the PRD Prompt
 
-Open `prompts/phase-1-planning/1.1-product-owner-prd.md` in the ai-dev-flow folder.
+Open `prompts/phase-1-planning/1.1-product-owner-prd.md` in the ai-dev-orchestrator folder.
 
 Copy the entire prompt template.
 

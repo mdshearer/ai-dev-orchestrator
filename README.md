@@ -3,27 +3,59 @@ This repo has been assembled by a non-coder who's trying to get more out of ai c
 Would love to collaborate with anyone interested in this space.
 
 My journey:
-- **Replit**: ask it to build a basic thing, end up pushing bugs around (but hosting works well and the front end looks great)
-- **Claude Code**: fix the replit apps, still pushing bugs but more effective
-- **AI Dev Tasks by Snarktank**: opens my brain to how a few docs can make a HUGE difference to how methodical ai coding can be, but...
-- **Still unsure**: what prompts? what roles? what ties this all together...?
-- **Gemini 2.5 Pro deep research**: finds more insight and methods, prompts and key roles assembled via Claude Opus 4.1
-- **Now testing**: applying this to projects, will update as I learn
+- **Replit**: Built basic things, pushed bugs everywhere (but hosting works well)
+- **Claude Code**: Fixed Replit apps, still pushing bugs but more effective
+- **AI Dev Tasks by Snarktank**: Opened my eyes to how docs can transform the process, but...
+- **Still unclear**: What prompts? What roles? What ties it all together?
+- **Gemini 2.5 Pro**: Deep research finds insights, assembled with Claude Opus 4.1
+- **Now testing**: Applying to projects, will update as I learn
 
-Alright, thats the human part done, the rest of this is the AI helping assemble everything together...
-
-
-**A structured framework for AI-driven software development.**
-
-Transform from "vibe coding" to orchestrating a specialized AI development team with prompts, personas, and workflows.
+The rest of this doc was assembled with AI
 
 ---
 
-## What is AI Dev Orchestrator?
+## What's in this repo?
 
-AI Dev Orchestrator is a complete, research-backed framework for building software with AI assistance. Instead of asking a single AI to "write my app," you orchestrate a **team of specialized AI personas** through a proven **four-phase workflow**, using **copy-paste ready prompts** and **quality guardrails**.
+**30-second version:** This repo contains:
+- 📝 **15 copy-paste prompts** to guide AI through planning, coding, reviewing, and documenting
+- 👥 **5 AI personas** (Product Owner, Architect, Developer, QA, Writer) to get specialized help
+- 📋 **Constitution template** - your project's rules that keep AI on track
+- 🔄 **4-phase workflow** so you build things in the right order
+- 📖 **Guides for Cursor, Claude Code, Replit** to get started fast
 
-**The result:** Professional, consistent, maintainable code without over-engineering.
+**The idea:** Stop randomly asking AI to build stuff and hoping it works out. Use prompts, personas, and a workflow instead.
+
+---
+
+**A way to build software with AI that actually works.**
+
+---
+
+## 👉 First Time Here? START HERE
+
+**Reading this for the first time?** Here's your 5-minute quickstart:
+
+1. **Understand the journey** - Read "My journey" above (you just did!)
+2. **Pick your path** - Choose based on experience:
+   - 🚀 **[Quick Start](#-quick-start-new-to-ai-coding)** - New to AI coding? Start here (2-3 hours per feature)
+   - 🏗️ **[Standard Flow](#%EF%B8%8F-standard-flow-building-for-others)** - Building for clients? Go here (1-3 days per feature)
+   - 🏭 **[Full Framework](#-full-framework-production-systems)** - Production systems? This is you (3-5 days per feature)
+3. **Choose your tool** - Set up your AI coding assistant:
+   - [Cursor IDE](#%EF%B8%8F-tool-specific-setup-guides) (recommended for beginners)
+   - [Claude Code](#%EF%B8%8F-tool-specific-setup-guides) (for CLI fans)
+   - [Replit AI](#%EF%B8%8F-tool-specific-setup-guides) (for instant deployment)
+
+**Not sure which path?** Use the [Complexity Estimator](#-not-sure-which-path) to analyze your project.
+
+**Want the details?** Keep reading below.
+
+---
+
+## What is AI-Dev-Orchestrator?
+
+AI-Dev-Orchestrator is a framework for building software with AI that's based on actual research. Instead of asking a single AI to "write my app," you work with different **AI personas** (like a product manager, architect, developer) through a **four-phase workflow**, using **copy-paste prompts** and **some rules to keep things on track**.
+
+**The result:** Code that works, stays consistent, and doesn't go overboard.
 
 ---
 
@@ -35,7 +67,7 @@ Prompt: "You are a senior developer. Build me a password reset feature."
 Result: Inconsistent, over-engineered, or incomplete code
 ```
 
-AI Dev Orchestrator approach (✅ structured):
+AI-Dev-Orchestrator approach (✅ structured):
 ```
 Phase 1: Product Owner    → Create PRD (requirements)
 Phase 1: Architect        → Create Tech Spec (design)
@@ -44,7 +76,62 @@ Phase 3: QA Engineer      → Review for quality & security
 Phase 4: Technical Writer → Document the solution
 ```
 
-**Result:** Well-planned, properly implemented, thoroughly reviewed code.
+**Result:** Code that's planned, built right, and actually reviewed.
+
+### How it flows:
+
+```
+Your Idea
+    ↓
+📋 Prompt #1 (Product Owner) → AI writes PRD
+    ↓
+📋 Prompt #2 (Architect) → AI writes Tech Spec
+    ↓
+📋 Prompt #3 (Task Generator) → AI creates task list
+    ↓
+📋 Prompt #4 (Developer) → AI writes code (one task at a time)
+    ↓
+📋 Prompt #5 (QA) → AI reviews for bugs/security
+    ↓
+📋 Prompt #6 (Writer) → AI documents everything
+    ↓
+✅ Shippable Feature
+```
+
+**You control every step.** AI does the work, you make the decisions.
+
+---
+
+## Frequently Asked Questions
+
+### Do I need to use all 15 prompts?
+
+No. Use what you need. Common minimal flow:
+- 1.1 Product Owner (PRD)
+- 2.2 Iterative Implementation (code)
+- 3.1 QA Review
+- 4.1 README
+
+### Which AI should I use?
+
+This works with any AI:
+- Claude (Sonnet/Opus) - Excellent for all prompts
+- ChatGPT (GPT-4) - Great for implementation and review
+- Gemini - Good for research and planning
+
+### Can I modify the prompts?
+
+Yes! These are templates. Customize for your needs.
+
+### What if I'm a solo developer?
+
+This framework is IDEAL for solo developers. You get the benefit of a full team's expertise (PM, Architect, QA, etc.) without hiring anyone.
+
+### Isn't this overkill for small projects?
+
+For trivial changes (e.g., "change button text"), yes.
+
+For any feature that requires planning, this saves time by catching issues early.
 
 ---
 
@@ -58,7 +145,7 @@ mkdir my-new-project
 cd my-new-project
 
 # Copy the CONSTITUTION template
-cp /path/to/ai-dev-flow/CONSTITUTION-TEMPLATE.md ./CONSTITUTION.md
+cp /path/to/ai-dev-orchestrator/CONSTITUTION-TEMPLATE.md ./CONSTITUTION.md
 
 # Customize CONSTITUTION.md for your project
 # (Edit tech stack, coding standards, etc.)
@@ -85,7 +172,7 @@ See [SETUP-GUIDE.md](./SETUP-GUIDE.md) for detailed instructions.
 
 ## 🎯 Choose Your Path
 
-**New to AI-driven development?** Start simple. **Building production systems?** Use the full framework.
+**New to AI coding?** Start simple. **Building something serious?** Use the full framework.
 
 ### 🚀 Quick Start (New to AI Coding)
 **Time:** 2-3 hours per feature | **Files:** 3 essential prompts | **Perfect for:** Learning, prototypes, internal tools
@@ -122,21 +209,21 @@ See [SETUP-GUIDE.md](./SETUP-GUIDE.md) for detailed instructions.
 
 ---
 
-### 🏭 Full Framework (Production Systems)
-**Time:** 3-5 days per feature | **Files:** 15+ specialized prompts | **Perfect for:** Complex systems, regulated industries, high-risk features
+### 🏭 Full Framework (Serious Projects)
+**Time:** 3-5 days per feature | **Files:** 15+ specialized prompts | **Perfect for:** Complex systems, heavily regulated stuff, high-risk features
 
 **What you'll use:**
 - All 5 specialized personas
 - Database and API design workflows
-- Comprehensive reviews (QA + Security + Performance)
-- Complete documentation suite
+- Thorough reviews (QA + Security + Performance)
+- Full documentation
 
 **Start here:** Read this complete README, then [`/workflow/prompt-selection-guide.md`](./workflow/prompt-selection-guide.md)
 
 **Example projects:**
 - Payment integrations
 - Healthcare applications
-- Enterprise systems
+- Big company systems
 - Features handling sensitive data (PII, payments)
 
 ---
@@ -212,13 +299,20 @@ Not sure how to configure your project? Start with a template:
 
 **[See all templates →](./templates/README.md)**
 
+**Want to see real examples?** Check out complete CONSTITUTION files and sample outputs:
+- [Internal tool example](./examples/internal-tool/CONSTITUTION.md) (expense tracker)
+- [Client app example](./examples/client-app/CONSTITUTION.md) (SaaS dashboard)
+- [AI agent example](./examples/ai-agent/CONSTITUTION.md) (Slack bot)
+- [Sample PRD](./examples/sample-outputs/sample-prd.md) - See what AI generates
+- [Sample Tech Spec](./examples/sample-outputs/sample-tech-spec.md) - See implementation details
+
 ---
 
 ## What's Included
 
 ### 📋 Templates & Documents
 
-- **CONSTITUTION-TEMPLATE.md** - Project standards and guardrails
+- **CONSTITUTION-TEMPLATE.md** - Your project's rules and standards
 - **RESEARCH-ORIGIN.md** - The Gemini Deep Research that informed this framework
 
 ### 👥 5 AI Personas
@@ -233,7 +327,7 @@ Each persona is a specialist with specific prompts:
 
 See [personas/](./personas/README.md)
 
-### 📝 15 Production-Ready Prompts
+### 📝 15 Ready-to-Use Prompts
 
 Copy-paste prompts organized by phase:
 
@@ -249,12 +343,12 @@ Copy-paste prompts organized by phase:
 - 2.3 Code Commenter
 
 **Phase 3 - Review (6 prompts):**
-- 3.1 Comprehensive Code Review
-- 3.2 Bugs & Edge Cases (specialized)
-- 3.3 Security Audit (specialized)
-- 3.4 Style & Standards Check (specialized)
-- 3.5 Testability Assessment (specialized)
-- 3.6 Refactoring Consultation (trade-off analysis)
+- 3.1 Full Code Review
+- 3.2 Bugs & Edge Cases
+- 3.3 Security Check
+- 3.4 Style & Standards Check
+- 3.5 Testing Check
+- 3.6 Refactoring Advice (what to change vs. what to leave)
 
 **Phase 4 - Documentation (2 prompts):**
 - 4.1 README.md Generator
@@ -266,7 +360,7 @@ See [prompts/](./prompts/)
 
 - [Workflow Overview](./workflow/workflow-overview.md) - Visual workflow diagram
 - [Prompt Selection Guide](./workflow/prompt-selection-guide.md) - Which prompt to use when
-- [Phase Checklist](./workflow/phase-checklist.md) - Ensure you complete each phase
+- [Phase Checklist](./workflow/phase-checklist.md) - Make sure you finish each phase
 
 ---
 
@@ -305,15 +399,15 @@ See [prompts/](./prompts/)
 - **Validate** critically (always review AI output)
 - **Refactor** with context (understand trade-offs)
 
-### 2. Constitution as Law
+### 2. Constitution = The Rules
 
 Every AI persona must follow `CONSTITUTION.md`:
-- Technical stack (mandated & prohibited technologies)
+- Technical stack (what you use & what you don't)
 - Coding standards (naming, formatting, comments)
 - Security requirements
-- Non-negotiable principles (simplicity, user-centricity, etc.)
+- Core principles (simplicity, user-first, etc.)
 
-This prevents drift and ensures consistency.
+This keeps everything consistent and on track.
 
 ### 3. One Task at a Time
 
@@ -336,22 +430,22 @@ You are not a passive user. You are the conductor:
 
 ### Based on Research
 
-This framework synthesizes:
+This framework combines ideas from:
 - **AI Dev Tasks** methodology (task-based prompting)
 - **Persona-based AI programming** (specialized roles)
-- **Government Digital Service (GDS)** compliance patterns
-- **OWASP** security best practices
+- **Government Digital Service (GDS)** patterns
+- **OWASP** security standards
 - **Constitutional AI** principles
 
 See [RESEARCH-ORIGIN.md](./RESEARCH-ORIGIN.md)
 
-### Battle-Tested Patterns
+### What Makes It Work
 
-- ✅ Avoids "over-engineering" by enforcing simplicity (CONSTITUTION.md)
-- ✅ Prevents scope creep with explicit acceptance criteria
-- ✅ Catches bugs early with specialized QA reviews
-- ✅ Maintains consistency with project-wide standards
-- ✅ Enables informed decisions with trade-off analysis
+- ✅ Avoids over-engineering by keeping things simple (CONSTITUTION.md)
+- ✅ Prevents scope creep with clear acceptance criteria
+- ✅ Catches bugs early with focused reviews
+- ✅ Keeps everything consistent
+- ✅ Helps you make better decisions by showing tradeoffs
 
 ---
 
@@ -388,7 +482,7 @@ See [RESEARCH-ORIGIN.md](./RESEARCH-ORIGIN.md)
 3. (Optional) Security Audit → Verify fixes
 ```
 
-**Output:** Production-ready code
+**Output:** Solid, working code
 
 ### Phase 4: Documentation (20 min)
 
@@ -399,14 +493,14 @@ See [RESEARCH-ORIGIN.md](./RESEARCH-ORIGIN.md)
 
 **Output:** Documented feature
 
-**Total time:** ~3-4 hours for a complete, professional feature
+**Total time:** ~3-4 hours for a complete, working feature
 
 ---
 
 ## Project Structure
 
 ```
-ai-dev-flow/
+ai-dev-orchestrator/
 ├── README.md                          # This file
 ├── SETUP-GUIDE.md                     # Detailed setup instructions
 ├── CONSTITUTION-TEMPLATE.md           # Copy this to your projects
@@ -441,13 +535,10 @@ ai-dev-flow/
 │       ├── 4.1-readme-generator.md
 │       └── 4.2-user-guide-generator.md
 │
-├── workflow/                          # Process documentation
-│   ├── workflow-overview.md
-│   ├── prompt-selection-guide.md
-│   └── phase-checklist.md
-│
-└── examples/
-    └── sample-internal-tool/          # (Future: working example)
+└── workflow/                          # Process documentation
+    ├── workflow-overview.md
+    ├── prompt-selection-guide.md
+    └── phase-checklist.md
 ```
 
 ---
@@ -457,42 +548,9 @@ ai-dev-flow/
 This framework is compatible with and enhances [AI Dev Tasks](https://github.com/snarktank/ai-dev-tasks):
 
 - **AI Dev Tasks:** Provides task management and workflow structure
-- **AI Dev Orchestrator:** Provides the personas, prompts, and quality guardrails
+- **AI-Dev-Orchestrator:** Provides the personas, prompts, and quality guardrails
 
-Use them together for maximum effectiveness.
-
----
-
-## Frequently Asked Questions
-
-### Do I need to use all 15 prompts?
-
-No. Use what you need. Common minimal flow:
-- 1.1 Product Owner (PRD)
-- 2.2 Iterative Implementation (code)
-- 3.1 QA Review
-- 4.1 README
-
-### Which AI should I use?
-
-This works with any AI:
-- Claude (Sonnet/Opus) - Excellent for all prompts
-- ChatGPT (GPT-4) - Great for implementation and review
-- Gemini - Good for research and planning
-
-### Can I modify the prompts?
-
-Yes! These are templates. Customize for your needs.
-
-### What if I'm a solo developer?
-
-This framework is IDEAL for solo developers. You get the benefit of a full team's expertise (PM, Architect, QA, etc.) without hiring anyone.
-
-### Isn't this overkill for small projects?
-
-For trivial changes (e.g., "change button text"), yes.
-
-For any feature that requires planning, this saves time by catching issues early.
+They work well together.
 
 ---
 
