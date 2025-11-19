@@ -1,15 +1,16 @@
 # AI-Dev-Orchestrator
-This repo has been assembled by a non-coder who's trying to get more out of ai coding. I'm probably pushing the boundaries a little far in terms of what I can achieve without a developer but this is where I've got to so far. Would love to collaborate with anyone interested in this space.
+This repo has been assembled by a non-coder who's trying to get more out of ai coding. I'm probably pushing the boundaries a little far in terms of what I can achieve without a human developer at the wheel but this is where I've got to so far. 
+Would love to collaborate with anyone interested in this space.
 
 My journey:
-- **Replit**: ask it to build a basic thing, end up pushing bugs around (but hosting works well)
+- **Replit**: ask it to build a basic thing, end up pushing bugs around (but hosting works well and the front end looks great)
 - **Claude Code**: fix the replit apps, still pushing bugs but more effective
-- **AI Dev Tasks by Snarktank**: opens my brain to how a few docs can make a HUGE difference, but...
+- **AI Dev Tasks by Snarktank**: opens my brain to how a few docs can make a HUGE difference to how methodical ai coding can be, but...
 - **Still unsure**: what prompts? what roles? what ties this all together...?
-- **Gemini 2.5 Pro deep research**: finds more insight, assembled via Claude Opus 4.1
+- **Gemini 2.5 Pro deep research**: finds more insight and methods, prompts and key roles assembled via Claude Opus 4.1
 - **Now testing**: applying this to projects, will update as I learn
 
-Alright, thats the human done, the rest of this is the AI helping assemble everything together...
+Alright, thats the human part done, the rest of this is the AI helping assemble everything together...
 
 
 **A structured framework for AI-driven software development.**
