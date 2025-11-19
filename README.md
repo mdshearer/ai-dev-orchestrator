@@ -2,12 +2,13 @@
 This repo has been assembled by a non-coder who's trying to get more out of ai coding. I'm probably pushing the boundaries a little far in terms of what I can achieve without a developer but this is where I've got to so far. Would love to collaborate with anyone interested in this space.
 
 My journey:
-Replit: ask it to build a basic thing, end up pushing bugs all around the place (but it does the hosting well)
-Claude code: fix the replit apps, still pushing bugs but a little more effective.
-Discover AI Dev Tasks by Snarktank which opens my brain to the potential of a few documents to make a HUGE difference to the process but...
-I'm still not sure about the prompts I should use and the roles I need and what's the document that ties all of this together...?
-Enter a Gemini (2.5 pro) deep research article which finds a whole lot more insight which I've assembled here via a few prompts with Claude Opus 4.1 to make sure it's actually useful.
-Now comes the testing... I've started applying this to a couple of projects and will update this as I learn.
+- **Replit**: Built basic things, pushed bugs everywhere (but hosting works well)
+- **Claude Code**: Fixed Replit apps, still pushing bugs but more effective
+- **AI Dev Tasks by Snarktank**: Opened my eyes to how docs can transform the process, but...
+- **Still unclear**: What prompts? What roles? What ties it all together?
+- **Gemini 2.5 Pro**: Deep research finds insights, assembled with Claude Opus 4.1
+- **Now testing**: Applying to projects, will update as I learn
+
 The rest of this doc was assembled with AI
 
 **A structured framework for AI-driven software development.**
@@ -16,9 +17,29 @@ Transform from "vibe coding" to orchestrating a specialized AI development team 
 
 ---
 
-## What is AI Dev Flow?
+## 👉 First Time Here? START HERE
 
-AI Dev Flow is a complete, research-backed framework for building software with AI assistance. Instead of asking a single AI to "write my app," you orchestrate a **team of specialized AI personas** through a proven **four-phase workflow**, using **copy-paste ready prompts** and **quality guardrails**.
+**Reading this for the first time?** Here's your 5-minute quickstart:
+
+1. **Understand the journey** - Read "My journey" above (you just did!)
+2. **Pick your path** - Choose based on experience:
+   - 🚀 **[Quick Start](#-quick-start-new-to-ai-coding)** - New to AI coding? Start here (2-3 hours per feature)
+   - 🏗️ **[Standard Flow](#%EF%B8%8F-standard-flow-building-for-others)** - Building for clients? Go here (1-3 days per feature)
+   - 🏭 **[Full Framework](#-full-framework-production-systems)** - Production systems? This is you (3-5 days per feature)
+3. **Choose your tool** - Set up your AI coding assistant:
+   - [Cursor IDE](#%EF%B8%8F-tool-specific-setup-guides) (recommended for beginners)
+   - [Claude Code](#%EF%B8%8F-tool-specific-setup-guides) (for CLI fans)
+   - [Replit AI](#%EF%B8%8F-tool-specific-setup-guides) (for instant deployment)
+
+**Not sure which path?** Use the [Complexity Estimator](#-not-sure-which-path) to analyze your project.
+
+**Want the details?** Keep reading below.
+
+---
+
+## What is AI-Dev-Orchestrator?
+
+AI-Dev-Orchestrator is a complete, research-backed framework for building software with AI assistance. Instead of asking a single AI to "write my app," you orchestrate a **team of specialized AI personas** through a proven **four-phase workflow**, using **copy-paste ready prompts** and **quality guardrails**.
 
 **The result:** Professional, consistent, maintainable code without over-engineering.
 
@@ -32,7 +53,7 @@ Prompt: "You are a senior developer. Build me a password reset feature."
 Result: Inconsistent, over-engineered, or incomplete code
 ```
 
-AI Dev Flow approach (✅ structured):
+AI-Dev-Orchestrator approach (✅ structured):
 ```
 Phase 1: Product Owner    → Create PRD (requirements)
 Phase 1: Architect        → Create Tech Spec (design)
@@ -55,7 +76,7 @@ mkdir my-new-project
 cd my-new-project
 
 # Copy the CONSTITUTION template
-cp /path/to/ai-dev-flow/CONSTITUTION-TEMPLATE.md ./CONSTITUTION.md
+cp /path/to/ai-dev-orchestrator/CONSTITUTION-TEMPLATE.md ./CONSTITUTION.md
 
 # Customize CONSTITUTION.md for your project
 # (Edit tech stack, coding standards, etc.)
@@ -403,7 +424,7 @@ See [RESEARCH-ORIGIN.md](./RESEARCH-ORIGIN.md)
 ## Project Structure
 
 ```
-ai-dev-flow/
+ai-dev-orchestrator/
 ├── README.md                          # This file
 ├── SETUP-GUIDE.md                     # Detailed setup instructions
 ├── CONSTITUTION-TEMPLATE.md           # Copy this to your projects
@@ -438,13 +459,10 @@ ai-dev-flow/
 │       ├── 4.1-readme-generator.md
 │       └── 4.2-user-guide-generator.md
 │
-├── workflow/                          # Process documentation
-│   ├── workflow-overview.md
-│   ├── prompt-selection-guide.md
-│   └── phase-checklist.md
-│
-└── examples/
-    └── sample-internal-tool/          # (Future: working example)
+└── workflow/                          # Process documentation
+    ├── workflow-overview.md
+    ├── prompt-selection-guide.md
+    └── phase-checklist.md
 ```
 
 ---
@@ -454,7 +472,7 @@ ai-dev-flow/
 This framework is compatible with and enhances [AI Dev Tasks](https://github.com/snarktank/ai-dev-tasks):
 
 - **AI Dev Tasks:** Provides task management and workflow structure
-- **AI Dev Flow:** Provides the personas, prompts, and quality guardrails
+- **AI-Dev-Orchestrator:** Provides the personas, prompts, and quality guardrails
 
 Use them together for maximum effectiveness.
 

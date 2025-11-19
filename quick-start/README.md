@@ -171,6 +171,6 @@ You've got this! 🎉
 
 ---
 
-**Need help?** Open an issue on the [ai-dev-orchestrator repository](https://github.com/yourusername/ai-dev-orchestrator/issues)
+**Need help?** Open an issue on the [ai-dev-orchestrator repository](https://github.com/mdshearer/ai-dev-orchestrator/issues)
 
 **Want to go deeper?** Check out the [main README](../README.md) for the full framework

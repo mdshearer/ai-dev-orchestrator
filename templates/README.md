@@ -404,15 +404,15 @@ Still not sure which template to use? Answer these questions:
 
 ---
 
-## Examples in the Wild
+## Examples Coming Soon
 
-Want to see real CONSTITUTION.md files? Check the `examples/` directory:
+Want to see real CONSTITUTION.md files in action? We're building example projects:
 
-- `examples/internal-tool/` - Expense tracker for 10-person team
-- `examples/client-app/` - SaaS analytics dashboard
-- `examples/ai-agent/` - Slack bot for customer support
+- [ ] Internal tool: Expense tracker for 10-person team
+- [ ] Client app: SaaS analytics dashboard
+- [ ] AI agent: Slack bot for customer support
 
-**Pro tip:** Browse these examples before customizing your template. They show real-world decisions and trade-offs.
+**Want to contribute an example?** Open a PR!
 
 ---
 
