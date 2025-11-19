@@ -8,7 +8,7 @@ My journey:
 - **AI Dev Tasks by Snarktank**: Opened my eyes to how docs can transform the process, but...
 - **Still unclear**: What prompts? What roles? What ties it all together?
 - **Gemini 2.5 Pro**: Deep research finds insights, assembled with Claude Opus 4.1
-- **Now testing**: Applying to projects, will update as I learn
+- **Now testing**: Applying to projects, will update as I learn. Definitely not following all the manual steps, trying to figure out minimal human steps required to build and maintain this.
 
 The rest of this doc was assembled with AI
 
