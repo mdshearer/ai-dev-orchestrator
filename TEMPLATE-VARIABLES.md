@@ -61,9 +61,11 @@ These are filled each time you use the prompt:
 | `[YOUR_FEATURE_DESCRIPTION]` | Starting new feature | "Password reset via email" | 1.1 |
 | `[FEATURE_NAME]` | After PRD created | "password-reset" | Multiple |
 | `[NUMBER]` | Per task | "5", "12" | 2.2 |
-| `[PASTE_TASK_DESCRIPTION_HERE]` | Per task | Copy from task list | 2.2 |
-| `[ATTACH_RELEVANT_FILES]` | Per prompt | Select files to attach | Multiple |
-| `[PASTE_YOUR_CODE_HERE]` | When reviewing | Copy code to review | 3.x |
+| `[TASK_DESCRIPTION]` | Per task | "Implement createResetToken method" | 2.2 |
+| `[FILE_PATHS_TO_REVIEW]` | When reviewing | "src/services/password-reset.service.ts" | 3.x |
+| `[TARGET_USERS]` | Starting PRD | "Internal employees (~200)" | 1.1 |
+| `[WHAT_PROBLEM]` | Starting PRD | "Too many help desk tickets" | 1.1 |
+| `[RELATED_FEATURES]` | Starting PRD | "Email/password login" | 1.1 |
 
 ---
 
