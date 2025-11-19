@@ -11,9 +11,22 @@ My journey:
 
 The rest of this doc was assembled with AI
 
-**A way to build software with AI that actually works.**
+---
 
-Stop randomly asking AI to build stuff and hoping it works out. Use prompts, personas, and a workflow instead.
+## What's in this repo?
+
+**30-second version:** This repo contains:
+- 📝 **15 copy-paste prompts** to guide AI through planning, coding, reviewing, and documenting
+- 👥 **5 AI personas** (Product Owner, Architect, Developer, QA, Writer) to get specialized help
+- 📋 **Constitution template** - your project's rules that keep AI on track
+- 🔄 **4-phase workflow** so you build things in the right order
+- 📖 **Guides for Cursor, Claude Code, Replit** to get started fast
+
+**The idea:** Stop randomly asking AI to build stuff and hoping it works out. Use prompts, personas, and a workflow instead.
+
+---
+
+**A way to build software with AI that actually works.**
 
 ---
 
@@ -63,6 +76,61 @@ Phase 4: Technical Writer → Document the solution
 ```
 
 **Result:** Code that's planned, built right, and actually reviewed.
+
+### How it flows:
+
+```
+Your Idea
+    ↓
+📋 Prompt #1 (Product Owner) → AI writes PRD
+    ↓
+📋 Prompt #2 (Architect) → AI writes Tech Spec
+    ↓
+📋 Prompt #3 (Task Generator) → AI creates task list
+    ↓
+📋 Prompt #4 (Developer) → AI writes code (one task at a time)
+    ↓
+📋 Prompt #5 (QA) → AI reviews for bugs/security
+    ↓
+📋 Prompt #6 (Writer) → AI documents everything
+    ↓
+✅ Shippable Feature
+```
+
+**You control every step.** AI does the work, you make the decisions.
+
+---
+
+## Frequently Asked Questions
+
+### Do I need to use all 15 prompts?
+
+No. Use what you need. Common minimal flow:
+- 1.1 Product Owner (PRD)
+- 2.2 Iterative Implementation (code)
+- 3.1 QA Review
+- 4.1 README
+
+### Which AI should I use?
+
+This works with any AI:
+- Claude (Sonnet/Opus) - Excellent for all prompts
+- ChatGPT (GPT-4) - Great for implementation and review
+- Gemini - Good for research and planning
+
+### Can I modify the prompts?
+
+Yes! These are templates. Customize for your needs.
+
+### What if I'm a solo developer?
+
+This framework is IDEAL for solo developers. You get the benefit of a full team's expertise (PM, Architect, QA, etc.) without hiring anyone.
+
+### Isn't this overkill for small projects?
+
+For trivial changes (e.g., "change button text"), yes.
+
+For any feature that requires planning, this saves time by catching issues early.
 
 ---
 
@@ -475,39 +543,6 @@ This framework is compatible with and enhances [AI Dev Tasks](https://github.com
 - **AI-Dev-Orchestrator:** Provides the personas, prompts, and quality guardrails
 
 They work well together.
-
----
-
-## Frequently Asked Questions
-
-### Do I need to use all 15 prompts?
-
-No. Use what you need. Common minimal flow:
-- 1.1 Product Owner (PRD)
-- 2.2 Iterative Implementation (code)
-- 3.1 QA Review
-- 4.1 README
-
-### Which AI should I use?
-
-This works with any AI:
-- Claude (Sonnet/Opus) - Excellent for all prompts
-- ChatGPT (GPT-4) - Great for implementation and review
-- Gemini - Good for research and planning
-
-### Can I modify the prompts?
-
-Yes! These are templates. Customize for your needs.
-
-### What if I'm a solo developer?
-
-This framework is IDEAL for solo developers. You get the benefit of a full team's expertise (PM, Architect, QA, etc.) without hiring anyone.
-
-### Isn't this overkill for small projects?
-
-For trivial changes (e.g., "change button text"), yes.
-
-For any feature that requires planning, this saves time by catching issues early.
 
 ---
 
