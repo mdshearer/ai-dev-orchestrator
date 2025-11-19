@@ -673,7 +673,151 @@ Want me to copy all prompts to your project?
 
 **If they say yes to copying prompts:**
 
-Create `docs/prompts/` folder and copy the relevant prompt files, then commit.
+Create `docs/prompts/` folder and copy the relevant prompt files with auto-populated template variables (see below), then commit.
+
+---
+
+### Auto-Populating Template Variables in Prompts
+
+**IMPORTANT:** When copying prompts to the user's project, you MUST auto-populate template variables to save them manual work.
+
+**Reference:** See [TEMPLATE-VARIABLES.md](./TEMPLATE-VARIABLES.md) for complete variable documentation.
+
+#### Step 1: Parse CONSTITUTION.md for Values
+
+Extract these values from the CONSTITUTION.md you just created:
+
+**From "Technical Stack" section:**
+```python
+# Example parsing:
+# "Framework: FastAPI" → backend_framework = "FastAPI"
+# "Language: Python 3.11+" → backend_language = "Python"
+# "Framework: React 18" → frontend_framework = "React"
+# "Language: TypeScript" → frontend_language = "TypeScript"
+# "Database: PostgreSQL 15+" → database = "PostgreSQL"
+```
+
+**From "Coding Standards" section:**
+```python
+# "Style Guide: PEP 8" → style_guide = "PEP 8"
+# "Style Guide: Airbnb JavaScript Style Guide" → style_guide = "Airbnb"
+```
+
+**From setup interview:**
+```python
+# project_type = "Internal Tool" (from Step 4)
+```
+
+#### Step 2: Determine Primary Stack
+
+```python
+# For backend/API tasks, use backend stack:
+language_framework = f"{backend_language}/{backend_framework}"
+# Example: "Python/FastAPI"
+
+# For frontend tasks, use frontend stack:
+language_framework = f"{frontend_language}/{frontend_framework}"
+# Example: "TypeScript/React"
+
+# For language-only contexts:
+primary_language = backend_language  # Example: "Python"
+```
+
+#### Step 3: Replace Variables in Prompt Templates
+
+When copying each prompt file, replace these variables:
+
+| Variable to Replace | Replacement Value | Example |
+|---------------------|-------------------|---------|
+| `[LANGUAGE/FRAMEWORK]` | `{language}/{framework}` | "Python/FastAPI" |
+| `[PRIMARY_LANGUAGE]` | `{language}` | "Python" |
+| `[DATABASE]` | `{database}` | "PostgreSQL" |
+| `[PROJECT_TYPE]` | `{project_type}` | "Internal Tool" |
+| `[STYLE_GUIDE]` | `{style_guide}` | "PEP 8" |
+
+**Example replacement:**
+
+**Before (original prompt):**
+```markdown
+You are an expert **[LANGUAGE/FRAMEWORK]** developer.
+```
+
+**After (copied to project):**
+```markdown
+You are an expert **Python/FastAPI** developer.
+```
+
+#### Step 4: What NOT to Replace
+
+**Leave these variables for humans to fill at use-time:**
+- `[YOUR_FEATURE_DESCRIPTION]` - User fills when starting feature
+- `[NUMBER]` - User fills per task
+- `[PASTE_TASK_DESCRIPTION_HERE]` - User fills per task
+- `[ATTACH_RELEVANT_FILES]` - User fills per prompt
+- `[PASTE_YOUR_CODE_HERE]` - User fills when reviewing
+
+These are **dynamic** and change with each use.
+
+#### Step 5: Inform the User
+
+After copying and populating prompts:
+
+**Say:**
+```
+✅ Prompts copied to docs/prompts/
+
+I've pre-populated these template variables based on your CONSTITUTION.md:
+- [LANGUAGE/FRAMEWORK] → Python/FastAPI (backend) / TypeScript/React (frontend)
+- [DATABASE] → PostgreSQL
+- [PROJECT_TYPE] → Internal Tool
+- [STYLE_GUIDE] → PEP 8
+
+Variables you'll fill when using prompts:
+- [YOUR_FEATURE_DESCRIPTION] - Your feature idea
+- [NUMBER] - Task number from task list
+- [PASTE_TASK_DESCRIPTION_HERE] - Exact task text
+- [ATTACH_RELEVANT_FILES] - Files to attach
+
+See TEMPLATE-VARIABLES.md for full reference.
+```
+
+#### Example: Full Prompt Auto-Population
+
+**Original prompt (in orchestrator repo):**
+```markdown
+# Prompt: Iterative Implementation
+
+You are an expert **[LANGUAGE/FRAMEWORK]** developer.
+
+**Your Context:**
+1. **Constitution:** You MUST follow all rules in `CONSTITUTION.md`
+2. **Task List:** We are working on **Task #[NUMBER]**
+3. **Task Description:** [PASTE_TASK_DESCRIPTION_HERE]
+
+**Your Assignment:**
+- Write code following [STYLE_GUIDE] standards
+- Use [DATABASE] for data persistence
+```
+
+**After copying to user's project (auto-populated):**
+```markdown
+# Prompt: Iterative Implementation
+
+You are an expert **Python/FastAPI** developer.
+
+**Your Context:**
+1. **Constitution:** You MUST follow all rules in `CONSTITUTION.md`
+2. **Task List:** We are working on **Task #[NUMBER]**
+3. **Task Description:** [PASTE_TASK_DESCRIPTION_HERE]
+
+**Your Assignment:**
+- Write code following PEP 8 standards
+- Use PostgreSQL for data persistence
+```
+
+**User fills remaining variables when using:**
+- `[NUMBER]` → "5"
+- `[PASTE_TASK_DESCRIPTION_HERE]` → "Implement createResetToken method"
 
 ---
 
