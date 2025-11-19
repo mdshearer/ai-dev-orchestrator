@@ -298,6 +298,13 @@ Not sure how to configure your project? Start with a template:
 
 **[See all templates →](./templates/README.md)**
 
+**Want to see real examples?** Check out complete CONSTITUTION files and sample outputs:
+- [Internal tool example](./examples/internal-tool/CONSTITUTION.md) (expense tracker)
+- [Client app example](./examples/client-app/CONSTITUTION.md) (SaaS dashboard)
+- [AI agent example](./examples/ai-agent/CONSTITUTION.md) (Slack bot)
+- [Sample PRD](./examples/sample-outputs/sample-prd.md) - See what AI generates
+- [Sample Tech Spec](./examples/sample-outputs/sample-tech-spec.md) - See implementation details
+
 ---
 
 ## What's Included
