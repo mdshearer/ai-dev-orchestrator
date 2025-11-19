@@ -11,9 +11,9 @@ My journey:
 
 The rest of this doc was assembled with AI
 
-**A structured framework for AI-driven software development.**
+**A way to build software with AI that actually works.**
 
-Transform from "vibe coding" to orchestrating a specialized AI development team with prompts, personas, and workflows.
+Stop randomly asking AI to build stuff and hoping it works out. Use prompts, personas, and a workflow instead.
 
 ---
 
@@ -39,9 +39,9 @@ Transform from "vibe coding" to orchestrating a specialized AI development team 
 
 ## What is AI-Dev-Orchestrator?
 
-AI-Dev-Orchestrator is a complete, research-backed framework for building software with AI assistance. Instead of asking a single AI to "write my app," you orchestrate a **team of specialized AI personas** through a proven **four-phase workflow**, using **copy-paste ready prompts** and **quality guardrails**.
+AI-Dev-Orchestrator is a framework for building software with AI that's based on actual research. Instead of asking a single AI to "write my app," you work with different **AI personas** (like a product manager, architect, developer) through a **four-phase workflow**, using **copy-paste prompts** and **some rules to keep things on track**.
 
-**The result:** Professional, consistent, maintainable code without over-engineering.
+**The result:** Code that works, stays consistent, and doesn't go overboard.
 
 ---
 
@@ -62,7 +62,7 @@ Phase 3: QA Engineer      → Review for quality & security
 Phase 4: Technical Writer → Document the solution
 ```
 
-**Result:** Well-planned, properly implemented, thoroughly reviewed code.
+**Result:** Code that's planned, built right, and actually reviewed.
 
 ---
 
@@ -103,7 +103,7 @@ See [SETUP-GUIDE.md](./SETUP-GUIDE.md) for detailed instructions.
 
 ## 🎯 Choose Your Path
 
-**New to AI-driven development?** Start simple. **Building production systems?** Use the full framework.
+**New to AI coding?** Start simple. **Building something serious?** Use the full framework.
 
 ### 🚀 Quick Start (New to AI Coding)
 **Time:** 2-3 hours per feature | **Files:** 3 essential prompts | **Perfect for:** Learning, prototypes, internal tools
@@ -140,21 +140,21 @@ See [SETUP-GUIDE.md](./SETUP-GUIDE.md) for detailed instructions.
 
 ---
 
-### 🏭 Full Framework (Production Systems)
-**Time:** 3-5 days per feature | **Files:** 15+ specialized prompts | **Perfect for:** Complex systems, regulated industries, high-risk features
+### 🏭 Full Framework (Serious Projects)
+**Time:** 3-5 days per feature | **Files:** 15+ specialized prompts | **Perfect for:** Complex systems, heavily regulated stuff, high-risk features
 
 **What you'll use:**
 - All 5 specialized personas
 - Database and API design workflows
-- Comprehensive reviews (QA + Security + Performance)
-- Complete documentation suite
+- Thorough reviews (QA + Security + Performance)
+- Full documentation
 
 **Start here:** Read this complete README, then [`/workflow/prompt-selection-guide.md`](./workflow/prompt-selection-guide.md)
 
 **Example projects:**
 - Payment integrations
 - Healthcare applications
-- Enterprise systems
+- Big company systems
 - Features handling sensitive data (PII, payments)
 
 ---
@@ -236,7 +236,7 @@ Not sure how to configure your project? Start with a template:
 
 ### 📋 Templates & Documents
 
-- **CONSTITUTION-TEMPLATE.md** - Project standards and guardrails
+- **CONSTITUTION-TEMPLATE.md** - Your project's rules and standards
 - **RESEARCH-ORIGIN.md** - The Gemini Deep Research that informed this framework
 
 ### 👥 5 AI Personas
@@ -251,7 +251,7 @@ Each persona is a specialist with specific prompts:
 
 See [personas/](./personas/README.md)
 
-### 📝 15 Production-Ready Prompts
+### 📝 15 Ready-to-Use Prompts
 
 Copy-paste prompts organized by phase:
 
@@ -267,12 +267,12 @@ Copy-paste prompts organized by phase:
 - 2.3 Code Commenter
 
 **Phase 3 - Review (6 prompts):**
-- 3.1 Comprehensive Code Review
-- 3.2 Bugs & Edge Cases (specialized)
-- 3.3 Security Audit (specialized)
-- 3.4 Style & Standards Check (specialized)
-- 3.5 Testability Assessment (specialized)
-- 3.6 Refactoring Consultation (trade-off analysis)
+- 3.1 Full Code Review
+- 3.2 Bugs & Edge Cases
+- 3.3 Security Check
+- 3.4 Style & Standards Check
+- 3.5 Testing Check
+- 3.6 Refactoring Advice (what to change vs. what to leave)
 
 **Phase 4 - Documentation (2 prompts):**
 - 4.1 README.md Generator
@@ -284,7 +284,7 @@ See [prompts/](./prompts/)
 
 - [Workflow Overview](./workflow/workflow-overview.md) - Visual workflow diagram
 - [Prompt Selection Guide](./workflow/prompt-selection-guide.md) - Which prompt to use when
-- [Phase Checklist](./workflow/phase-checklist.md) - Ensure you complete each phase
+- [Phase Checklist](./workflow/phase-checklist.md) - Make sure you finish each phase
 
 ---
 
@@ -323,15 +323,15 @@ See [prompts/](./prompts/)
 - **Validate** critically (always review AI output)
 - **Refactor** with context (understand trade-offs)
 
-### 2. Constitution as Law
+### 2. Constitution = The Rules
 
 Every AI persona must follow `CONSTITUTION.md`:
-- Technical stack (mandated & prohibited technologies)
+- Technical stack (what you use & what you don't)
 - Coding standards (naming, formatting, comments)
 - Security requirements
-- Non-negotiable principles (simplicity, user-centricity, etc.)
+- Core principles (simplicity, user-first, etc.)
 
-This prevents drift and ensures consistency.
+This keeps everything consistent and on track.
 
 ### 3. One Task at a Time
 
@@ -354,22 +354,22 @@ You are not a passive user. You are the conductor:
 
 ### Based on Research
 
-This framework synthesizes:
+This framework combines ideas from:
 - **AI Dev Tasks** methodology (task-based prompting)
 - **Persona-based AI programming** (specialized roles)
-- **Government Digital Service (GDS)** compliance patterns
-- **OWASP** security best practices
+- **Government Digital Service (GDS)** patterns
+- **OWASP** security standards
 - **Constitutional AI** principles
 
 See [RESEARCH-ORIGIN.md](./RESEARCH-ORIGIN.md)
 
-### Battle-Tested Patterns
+### What Makes It Work
 
-- ✅ Avoids "over-engineering" by enforcing simplicity (CONSTITUTION.md)
-- ✅ Prevents scope creep with explicit acceptance criteria
-- ✅ Catches bugs early with specialized QA reviews
-- ✅ Maintains consistency with project-wide standards
-- ✅ Enables informed decisions with trade-off analysis
+- ✅ Avoids over-engineering by keeping things simple (CONSTITUTION.md)
+- ✅ Prevents scope creep with clear acceptance criteria
+- ✅ Catches bugs early with focused reviews
+- ✅ Keeps everything consistent
+- ✅ Helps you make better decisions by showing tradeoffs
 
 ---
 
@@ -406,7 +406,7 @@ See [RESEARCH-ORIGIN.md](./RESEARCH-ORIGIN.md)
 3. (Optional) Security Audit → Verify fixes
 ```
 
-**Output:** Production-ready code
+**Output:** Solid, working code
 
 ### Phase 4: Documentation (20 min)
 
@@ -417,7 +417,7 @@ See [RESEARCH-ORIGIN.md](./RESEARCH-ORIGIN.md)
 
 **Output:** Documented feature
 
-**Total time:** ~3-4 hours for a complete, professional feature
+**Total time:** ~3-4 hours for a complete, working feature
 
 ---
 
@@ -474,7 +474,7 @@ This framework is compatible with and enhances [AI Dev Tasks](https://github.com
 - **AI Dev Tasks:** Provides task management and workflow structure
 - **AI-Dev-Orchestrator:** Provides the personas, prompts, and quality guardrails
 
-Use them together for maximum effectiveness.
+They work well together.
 
 ---
 
