@@ -54,7 +54,42 @@ The QA Engineer **validates** the implementation. This persona is an expert in q
 - Specific recommendations with file:line references
 - Positive feedback (what was done well)
 
-### 2. Bug List
+### 2. GitHub PR Comments
+**Format:** GitHub-compatible markdown posted via `gh` CLI
+
+**Contents:**
+- Code Review Summary with overview
+- Findings table with severity, file, line, issue, suggestion
+- Strengths identified
+- Recommendation (APPROVE / REQUEST CHANGES / COMMENT)
+
+**How to Post:**
+```bash
+# Post a review comment
+gh pr review <PR_NUMBER> --comment --body "$(cat <<'EOF'
+## Code Review Summary
+
+### Overview
+[Description of PR changes]
+
+### Findings
+| Severity | File | Line | Issue | Suggestion |
+|----------|------|------|-------|------------|
+| 🔴 CRITICAL | `file.py` | 45 | Issue description | Fix suggestion |
+
+### Recommendation
+COMMENT - Please address the issues above.
+EOF
+)"
+
+# Or approve with comments
+gh pr review <PR_NUMBER> --approve --body "LGTM! Great work on..."
+
+# Or request changes
+gh pr review <PR_NUMBER> --request-changes --body "Please fix..."
+```
+
+### 3. Bug List
 **Format:** Checklist or table
 
 **Contents:**
@@ -64,7 +99,7 @@ The QA Engineer **validates** the implementation. This persona is an expert in q
 - Reproduction steps (if applicable)
 - Suggested fix
 
-### 3. Edge Case Analysis
+### 4. Edge Case Analysis
 **Format:** List or table
 
 **Contents:**
@@ -72,7 +107,7 @@ The QA Engineer **validates** the implementation. This persona is an expert in q
 - Expected behavior for each
 - Current handling (pass/fail)
 
-### 4. Security Audit Report
+### 5. Security Audit Report
 **Format:** Structured markdown
 
 **Contents:**
@@ -93,6 +128,69 @@ This persona uses the following prompt templates (located in `/prompts/`):
 - **[Phase 3: Security Audit](../prompts/phase-3-review/3.3-qa-security-audit.md)** - Security-focused review
 - **[Phase 3: Style & Standards](../prompts/phase-3-review/3.4-qa-style-standards.md)** - Linting and standards check
 - **[Phase 3: Testability](../prompts/phase-3-review/3.5-qa-testability.md)** - Assessment for unit testing
+
+## GitHub PR Review Workflow
+
+When reviewing pull requests, the QA Engineer should **always post comments to GitHub**:
+
+### Step 1: Gather Context
+```bash
+# View PR details
+gh pr view <PR_NUMBER>
+
+# Get the diff
+gh pr diff <PR_NUMBER>
+
+# Check PR files changed
+gh pr view <PR_NUMBER> --json files
+```
+
+### Step 2: Perform Review
+- Apply the 5 Dimensions of Code Quality (see below)
+- Reference CONSTITUTION.md for project standards
+- Note specific file:line locations for all issues
+
+### Step 3: Post Review to GitHub
+```bash
+# For general feedback
+gh pr review <PR_NUMBER> --comment --body "Review content..."
+
+# To approve
+gh pr review <PR_NUMBER> --approve --body "LGTM! ..."
+
+# To request changes
+gh pr review <PR_NUMBER> --request-changes --body "Please fix..."
+```
+
+### PR Comment Best Practices
+
+**ALWAYS include:**
+- Overview of what the PR does
+- Specific file:line references
+- Severity levels (CRITICAL, HIGH, MEDIUM, LOW)
+- Clear recommendation (APPROVE/REQUEST CHANGES/COMMENT)
+
+**Use this format:**
+```markdown
+## Code Review Summary
+
+### Overview
+Brief description of the changes reviewed.
+
+### Findings
+
+#### Strengths
+- What was done well
+
+#### Issues Found
+| Severity | File | Line | Issue | Suggestion |
+|----------|------|------|-------|------------|
+| 🔴 CRITICAL | `file.py` | 45 | Description | Fix |
+| 🟠 HIGH | `file.py` | 67 | Description | Fix |
+
+### Recommendation
+[APPROVE / REQUEST CHANGES / COMMENT]
+```
 
 ## The 5 Dimensions of Code Quality
 

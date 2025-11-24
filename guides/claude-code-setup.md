@@ -210,6 +210,97 @@ Feature: Payment Integration
 - Status: Parent task 3 (API endpoints) - sub-task 3.2
 ```
 
+## GitHub Integration & PR Comments
+
+Claude Code integrates with the GitHub CLI (`gh`) to post comments and reviews directly to pull requests. This is essential for collaborative development.
+
+### Prerequisites
+
+1. **Install GitHub CLI**:
+   ```bash
+   # macOS
+   brew install gh
+
+   # Linux
+   sudo apt install gh  # Debian/Ubuntu
+   sudo dnf install gh  # Fedora
+
+   # Windows
+   winget install GitHub.cli
+   ```
+
+2. **Authenticate with GitHub**:
+   ```bash
+   gh auth login
+   ```
+
+### Posting PR Comments
+
+Claude Code can automatically add comments to PRs using these commands:
+
+```bash
+# Add a general comment to a PR
+gh pr comment <PR_NUMBER> --body "Your comment here"
+
+# Add a code review with comments
+gh pr review <PR_NUMBER> --comment --body "Review comments here"
+
+# Approve a PR with comments
+gh pr review <PR_NUMBER> --approve --body "LGTM! Approved with notes..."
+
+# Request changes
+gh pr review <PR_NUMBER> --request-changes --body "Please address these issues..."
+```
+
+### PR Review Workflow
+
+When reviewing or creating PRs, Claude Code should:
+
+1. **Analyze the changes**: `gh pr diff <PR_NUMBER>`
+2. **Check PR details**: `gh pr view <PR_NUMBER>`
+3. **Post structured review**: Use the format below
+
+**Standard PR Comment Format:**
+```markdown
+## Code Review Summary
+
+### Overview
+[Brief description of what this PR does]
+
+### Findings
+
+#### Strengths
+- [What was done well]
+
+#### Issues Found
+| Severity | File | Line | Issue | Suggestion |
+|----------|------|------|-------|------------|
+| 🔴 CRITICAL | `file.py` | 45 | Description | Fix suggestion |
+| 🟠 HIGH | `file.py` | 67 | Description | Fix suggestion |
+| 🟡 MEDIUM | `file.py` | 89 | Description | Fix suggestion |
+
+### Recommendation
+[APPROVE / REQUEST CHANGES / COMMENT]
+```
+
+### Configuring Claude Code to Always Comment on PRs
+
+To ensure Claude Code always adds PR comments, add this to your project's `CLAUDE.md`:
+
+```markdown
+## PR Review Requirements
+
+When working on pull requests:
+1. ALWAYS post a review comment using `gh pr review` or `gh pr comment`
+2. Use the standard review format (see ai-framework/guides/claude-code-setup.md)
+3. Include specific file:line references for all issues
+4. Categorize issues by severity (CRITICAL, HIGH, MEDIUM, LOW)
+```
+
+Or add to your global Claude configuration (see "Global Configuration" section below).
+
+---
+
 ## Custom Commands (Slash Commands)
 
 Claude Code supports custom slash commands. Create shortcuts for ai-dev-orchestrator workflows.
@@ -289,6 +380,54 @@ Check for:
 - Performance issues
 - Code quality and standards
 - Missing tests
+```
+
+**File: `.claude/commands/pr-review.md`**
+```markdown
+Review the current PR and post a comment to GitHub.
+
+Steps:
+1. Get PR details: `gh pr view`
+2. Get PR diff: `gh pr diff`
+3. Analyze changes against CONSTITUTION.md
+4. Review across 5 dimensions (quality, bugs, performance, readability, security)
+5. Post review using `gh pr review` with the standard format
+
+Output format for PR comment:
+## Code Review Summary
+
+### Overview
+[Brief description of changes]
+
+### Findings
+
+#### Strengths
+- [What was done well]
+
+#### Issues Found
+| Severity | File | Line | Issue | Suggestion |
+|----------|------|------|-------|------------|
+| [emoji] | `file` | line | desc | fix |
+
+### Recommendation
+[APPROVE / REQUEST CHANGES / COMMENT]
+
+IMPORTANT: You MUST post this review to GitHub using `gh pr review --comment --body "..."` or `gh pr comment --body "..."`
+```
+
+**File: `.claude/commands/pr-comment.md`**
+```markdown
+Add a comment to the current PR summarizing work done.
+
+Steps:
+1. Get current PR: `gh pr view`
+2. Summarize the changes made in this session
+3. Post comment using `gh pr comment --body "..."`
+
+Include:
+- What was implemented/fixed
+- Files changed
+- Any follow-up items or notes for reviewers
 ```
 
 ### Using Custom Commands
@@ -544,9 +683,92 @@ AI: [Fixes issues]
 You: Run tests, commit with message "feat: add password reset feature"
 ```
 
+## Global Configuration (All Projects)
+
+To make Claude Code behave consistently across ALL your projects, use global configuration files.
+
+### Global CLAUDE.md
+
+Create a global instructions file that applies to all projects:
+
+**Location:** `~/.claude/CLAUDE.md`
+
+```markdown
+# Global Claude Code Instructions
+
+## PR Comment Requirements
+
+When working on any pull request:
+1. ALWAYS post a review comment to GitHub using `gh pr review` or `gh pr comment`
+2. Before completing work on a PR branch, summarize changes with `gh pr comment`
+3. When reviewing PRs, use the standard review format with severity levels
+4. Include specific file:line references for all issues found
+
+## Standard PR Review Format
+
+When posting PR reviews, use this format:
+
+## Code Review Summary
+
+### Overview
+[Brief description of what this PR does]
+
+### Findings
+
+#### Strengths
+- [What was done well]
+
+#### Issues Found
+| Severity | File | Line | Issue | Suggestion |
+|----------|------|------|-------|------------|
+| CRITICAL/HIGH/MEDIUM/LOW | `file` | line | description | fix |
+
+### Recommendation
+[APPROVE / REQUEST CHANGES / COMMENT]
+
+## Git Workflow
+
+- Always create descriptive commit messages
+- Post PR comments when completing significant work
+- Use `gh pr view` to check current PR context
+```
+
+### Global Settings
+
+Claude Code also supports global settings in `~/.claude/settings.json`:
+
+```json
+{
+  "permissions": {
+    "allow": [
+      "Bash(gh pr:*)",
+      "Bash(gh issue:*)",
+      "Bash(git:*)"
+    ]
+  }
+}
+```
+
+### Verification
+
+To verify your global config is working:
+
+```bash
+# Check if global CLAUDE.md exists
+cat ~/.claude/CLAUDE.md
+
+# Test gh authentication
+gh auth status
+
+# Test PR commands work
+gh pr list
+```
+
+---
+
 ## Additional Resources
 
-- [Claude Code Documentation](https://code.claude.com/docs)
+- [Claude Code Documentation](https://docs.anthropic.com/en/docs/claude-code)
 - [AI-Dev-Orchestrator Main README](../README.md)
 - [Quick Start Guide](../quick-start/README.md)
 - [Anthropic Console](https://console.anthropic.com) (for API keys)
