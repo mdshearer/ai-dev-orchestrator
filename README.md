@@ -100,6 +100,8 @@ Your Idea
 
 **You control every step.** AI does the work, you make the decisions.
 
+![AI Coding](AI%20coding%20process%20workflow.png)
+
 ---
 
 ## Frequently Asked Questions
