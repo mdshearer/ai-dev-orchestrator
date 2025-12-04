@@ -19,6 +19,12 @@ This whole framework is platform agnostic.
 
 The rest of this doc was assembled with AI.
 
+P.S. If it seems overwhelming... key things you need:
+1. A constitution doc
+2. 3-6 personas (essentially copy and paste prompts)
+
+If you want to get a little more advanced... I connect this repo to some of my Claude projects, and have turned the persona's in to Claude Code agents that can be invoked in any project. The rest of the docs and for humans and AI to understand how to make their own version.
+
 MCS
 
 ---
