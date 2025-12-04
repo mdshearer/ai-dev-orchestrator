@@ -2,15 +2,24 @@
 This repo has been assembled by a non-coder who's trying to get more out of ai coding. I'm probably pushing the boundaries a little far in terms of what I can achieve without a human developer at the wheel but this is where I've got to so far. 
 Would love to collaborate with anyone interested in this space.
 
+Current experiments circa Dec 2025: 
+- Turning this in to a writing workflow and...
+- a generic template
+- Adapting biomimcry to the process
+
 My journey:
 - **Replit**: Built basic things, pushed bugs everywhere (but hosting works well)
 - **Claude Code**: Fixed Replit apps, still pushing bugs but more effective
-- **AI Dev Tasks by Snarktank**: Opened my eyes to how docs can transform the process, but...
+- **AI Dev Tasks by Snarktank**: Opened my eyes to how a few well placed docs can transform the process, but...
 - **Still unclear**: What prompts? What roles? What ties it all together?
-- **Gemini 2.5 Pro**: Deep research finds insights, assembled with Claude Opus 4.1
-- **Now testing**: Applying to projects, will update as I learn. Definitely not following all the manual steps, trying to figure out minimal human steps required to build and maintain this.
+- **Gemini 2.5 Pro**: Deep research finds insights, assembled with Claude Opus 4.1 (3 weeks later both models already out of date!)
+- **Now testing**: Applying to projects, will update as I learn. Definitely not following all the manual steps listed here, trying to figure out minimum human steps required to build, run and maintain this.
 
-The rest of this doc was assembled with AI
+This whole framework is platform agnostic.
+
+The rest of this doc was assembled with AI.
+
+MCS
 
 ---
 
