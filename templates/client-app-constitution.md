@@ -34,6 +34,42 @@ looking for affordable, easy-to-use analytics.
 3. **Professional Polish** - UI/UX must be intuitive and beautiful
 4. **Scalability Matters** - Build to handle growth
 5. **Documentation Required** - Users and developers need clear docs
+6. **Simplicity Over Complexity** - Proven tools over cutting-edge experiments
+
+**What "Simplicity" MEANS:**
+- ✅ Choose proven, well-documented tools over cutting-edge experiments
+- ✅ Prefer explicit code over "clever" abstractions
+- ✅ One canonical way to do things, not multiple competing patterns
+- ✅ Readable code over compact code
+- ✅ Boring technology that works over exciting technology that might not
+
+**What "Simplicity" does NOT MEAN:**
+- ❌ Avoiding type safety (TypeScript adds safety, reduces debugging)
+- ❌ Skipping validation libraries (Zod reduces code vs manual validation)
+- ❌ Reinventing wheels to avoid dependencies
+- ❌ Using weaker tools because they have fewer features
+
+**Litmus test:** Will a developer new to the project understand this in 30 seconds?
+
+---
+
+## AI Model Assumptions
+
+This constitution is designed for AI assistants with capabilities of:
+- **Minimum:** Claude Sonnet 4 / GPT-4 / Gemini 1.5 Pro
+- **Recommended:** Claude Opus 4+ for complex architecture decisions
+
+**Assumed capabilities:**
+- Strong TypeScript comprehension and generation
+- Multi-file context understanding (50k+ tokens)
+- Schema-aware code generation
+- Ability to follow explicit constraints
+
+**If using older/smaller models, consider:**
+- More explicit inline comments explaining intent
+- Smaller file sizes (<300 lines)
+- Simpler type hierarchies (avoid deep generics)
+- More frequent checkpoints and reviews
 
 ---
 
@@ -82,7 +118,9 @@ Validation: [Zod / Yup / Joi]
 
 **Example:**
 ```
-UI: React 18 with TypeScript
+UI: React 18 with TypeScript (strict mode enabled)
+File extensions: .tsx for components, .ts for utilities
+Type imports: import type { ... } for type-only imports
 Styling: Tailwind CSS 3 + shadcn/ui components
 State: TanStack Query for server state, Zustand for client state
 Forms: React Hook Form + Zod for validation
@@ -303,8 +341,8 @@ CSRF: SameSite=Strict cookies + CSRF tokens for mutations
 
 ### TypeScript Configuration
 ```
-Strict Mode: [Yes / No]
-No Implicit Any: [Yes / No]
+Strict Mode: Yes (required)
+No Implicit Any: Yes (required)
 ```
 
 **Example:**
@@ -319,6 +357,33 @@ No Implicit Any: [Yes / No]
   }
 }
 ```
+
+---
+
+## Type Sharing (Full-Stack TypeScript)
+
+**Single Source of Truth:**
+- All data types defined ONCE in `shared/schema.ts` (or `types/`)
+- Frontend imports types directly from shared location
+- No manual type duplication between frontend and backend
+- API responses typed with schema types, never `any`
+
+**Pattern:**
+```typescript
+// shared/schema.ts - AUTHORITATIVE
+export type User = { id: number; name: string; email: string };
+
+// Backend - imports from shared
+import type { User } from '../shared/schema';
+
+// Frontend - imports from shared
+import type { User } from '@shared/schema';
+```
+
+**Prohibited:**
+- ❌ Redefining types in frontend that exist in backend
+- ❌ Using `any` for API responses
+- ❌ Manual type guards when schema types exist
 
 ### File Structure
 ```
@@ -398,6 +463,26 @@ Framework: [Vitest / Jest / etc.]
 Coverage Target: [X%]
 What to Test: [Business logic, utilities, helpers]
 ```
+
+**Coverage Thresholds:**
+| Area | Minimum | Target |
+|------|---------|--------|
+| Business logic | 70% | 85% |
+| Utility functions | 80% | 95% |
+| API endpoints | 70% | 80% |
+| UI components | 50% | 70% |
+
+**"Adequate testing" checklist:**
+- [ ] Happy path tested with realistic data
+- [ ] Error cases tested (invalid input, network failures)
+- [ ] Edge cases for user input (empty, too long, special chars)
+- [ ] API contract validated (request/response shapes)
+- [ ] Critical user flows have integration tests
+
+**Testing philosophy:**
+- Test behavior, not implementation
+- Prefer integration tests over unit tests for API boundaries
+- Mock external services, not internal modules
 
 **Example:**
 ```
@@ -897,6 +982,19 @@ Annual DR drill: Full recovery simulation
 - [ ] Multi-region deployment
 - [ ] Advanced customization
 ```
+
+---
+
+## Revision History
+
+| Date | Version | Changes | Author |
+|------|---------|---------|--------|
+| [YYYY-MM-DD] | 1.0 | Initial constitution | [Your Name] |
+
+**Rule:** All constitution changes require:
+1. Version number increment
+2. Documented rationale for change
+3. Review of dependent documentation (README, CLAUDE.md)
 
 ---
 

@@ -19,6 +19,21 @@
 - When in doubt, choose the simpler approach.
 - YAGNI (You Aren't Gonna Need It) - don't build features speculatively.
 
+**What "Simplicity" MEANS:**
+- ✅ Choose proven, well-documented tools over cutting-edge experiments
+- ✅ Prefer explicit code over "clever" abstractions
+- ✅ One canonical way to do things, not multiple competing patterns
+- ✅ Readable code over compact code
+- ✅ Boring technology that works over exciting technology that might not
+
+**What "Simplicity" does NOT MEAN:**
+- ❌ Avoiding type safety (TypeScript adds safety, reduces debugging)
+- ❌ Skipping validation libraries (Zod reduces code vs manual validation)
+- ❌ Reinventing wheels to avoid dependencies
+- ❌ Using weaker tools because they have fewer features
+
+**Litmus test:** Will a developer new to the project understand this in 30 seconds?
+
 **Accessibility is Mandatory**
 - All UI components and user flows must be accessible (WCAG 2.1 AA minimum).
 - All interactive elements must be keyboard-navigable.
@@ -27,13 +42,35 @@
 
 ---
 
-## 2. Technical Stack (The "What")
+## 2. AI Model Assumptions
+
+This constitution is designed for AI assistants with capabilities of:
+- **Minimum:** Claude Sonnet 4 / GPT-4 / Gemini 1.5 Pro
+- **Recommended:** Claude Opus 4+ for complex architecture decisions
+
+**Assumed capabilities:**
+- Strong TypeScript comprehension and generation
+- Multi-file context understanding (50k+ tokens)
+- Schema-aware code generation
+- Ability to follow explicit constraints
+
+**If using older/smaller models, consider:**
+- More explicit inline comments explaining intent
+- Smaller file sizes (<300 lines)
+- Simpler type hierarchies (avoid deep generics)
+- More frequent checkpoints and reviews
+
+---
+
+## 3. Technical Stack (The "What")
 
 ### Mandated Technologies
 
 **Frontend:**
 - Framework: [e.g., React 18+, Vue 3, Svelte, Next.js]
-- Language: [e.g., TypeScript (strict mode)]
+- Language: TypeScript (strict mode enabled)
+- File extensions: .tsx for React components, .ts for utilities
+- Type imports: `import type { ... }` for type-only imports
 - Styling: [e.g., Tailwind CSS, CSS Modules, Styled Components]
 - State Management: [e.g., Zustand, Redux Toolkit, Pinia]
 
@@ -59,7 +96,34 @@
 
 ---
 
-## 3. Coding Standards (The "How")
+## 4. Type Sharing (Full-Stack TypeScript)
+
+**Single Source of Truth:**
+- All data types defined ONCE in `shared/schema.ts` (or `types/`)
+- Frontend imports types directly from shared location
+- No manual type duplication between frontend and backend
+- API responses typed with schema types, never `any`
+
+**Pattern:**
+```typescript
+// shared/schema.ts - AUTHORITATIVE
+export type User = { id: number; name: string; email: string };
+
+// Backend - imports from shared
+import type { User } from '../shared/schema';
+
+// Frontend - imports from shared
+import type { User } from '@shared/schema';
+```
+
+**Prohibited:**
+- ❌ Redefining types in frontend that exist in backend
+- ❌ Using `any` for API responses
+- ❌ Manual type guards when schema types exist
+
+---
+
+## 5. Coding Standards (The "How")
 
 ### Language & Style
 
@@ -157,9 +221,25 @@ tests/
 
 ### Testing Requirements
 
-**Coverage:**
-- Minimum code coverage: [e.g., 80%]
-- All critical paths (auth, payments, data mutations) must have tests.
+**Coverage Thresholds:**
+| Area | Minimum | Target |
+|------|---------|--------|
+| Business logic | 70% | 85% |
+| Utility functions | 80% | 95% |
+| API endpoints | 70% | 80% |
+| UI components | 50% | 70% |
+
+**"Adequate testing" checklist:**
+- [ ] Happy path tested with realistic data
+- [ ] Error cases tested (invalid input, network failures)
+- [ ] Edge cases for user input (empty, too long, special chars)
+- [ ] API contract validated (request/response shapes)
+- [ ] Critical user flows have integration tests
+
+**Testing philosophy:**
+- Test behavior, not implementation
+- Prefer integration tests over unit tests for API boundaries
+- Mock external services, not internal modules
 
 **Test Types:**
 - Unit tests: [e.g., Jest, pytest, Go testing]
@@ -359,6 +439,11 @@ Closes #123
 | Date | Version | Changes | Author |
 |------|---------|---------|--------|
 | [YYYY-MM-DD] | 1.0 | Initial constitution | [Your Name] |
+
+**Rule:** All constitution changes require:
+1. Version number increment
+2. Documented rationale for change
+3. Review of dependent documentation (README, CLAUDE.md)
 
 ---
 
