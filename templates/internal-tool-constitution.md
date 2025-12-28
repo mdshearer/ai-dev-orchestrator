@@ -30,6 +30,41 @@ current spreadsheet-based system which makes collaboration difficult.
 3. **Fast iteration** - Ship quickly, improve based on real feedback
 4. **Solve the specific problem** - Don't build a universal solution
 
+**What "Simplicity" MEANS:**
+- ✅ Choose proven, well-documented tools over cutting-edge experiments
+- ✅ Prefer explicit code over "clever" abstractions
+- ✅ One canonical way to do things, not multiple competing patterns
+- ✅ Readable code over compact code
+- ✅ Boring technology that works over exciting technology that might not
+
+**What "Simplicity" does NOT MEAN:**
+- ❌ Avoiding type safety (TypeScript adds safety, reduces debugging)
+- ❌ Skipping validation libraries (Zod reduces code vs manual validation)
+- ❌ Reinventing wheels to avoid dependencies
+- ❌ Using weaker tools because they have fewer features
+
+**Litmus test:** Will a developer new to the project understand this in 30 seconds?
+
+---
+
+## AI Model Assumptions
+
+This constitution is designed for AI assistants with capabilities of:
+- **Minimum:** Claude Sonnet 4 / GPT-4 / Gemini 1.5 Pro
+- **Recommended:** Claude Opus 4+ for complex architecture decisions
+
+**Assumed capabilities:**
+- Strong TypeScript comprehension and generation
+- Multi-file context understanding (50k+ tokens)
+- Schema-aware code generation
+- Ability to follow explicit constraints
+
+**If using older/smaller models, consider:**
+- More explicit inline comments explaining intent
+- Smaller file sizes (<300 lines)
+- Simpler type hierarchies (avoid deep generics)
+- More frequent checkpoints and reviews
+
 ---
 
 ## Technical Stack
@@ -47,6 +82,9 @@ current spreadsheet-based system which makes collaboration difficult.
 ```
 Framework: Next.js 14 with App Router
 Runtime: Node.js 18
+Language: TypeScript (strict mode enabled)
+File extensions: .tsx for components, .ts for utilities
+Type imports: import type { ... } for type-only imports
 ```
 
 ### Database
@@ -366,6 +404,33 @@ const dbUrl = process.env.DATABASE_URL;
 
 ---
 
+## Type Sharing (Full-Stack TypeScript)
+
+**Single Source of Truth:**
+- All data types defined ONCE in `shared/schema.ts` (or `types/`)
+- Frontend imports types directly from shared location
+- No manual type duplication between frontend and backend
+- API responses typed with schema types, never `any`
+
+**Pattern:**
+```typescript
+// shared/schema.ts - AUTHORITATIVE
+export type User = { id: number; name: string; email: string };
+
+// Backend - imports from shared
+import type { User } from '../shared/schema';
+
+// Frontend - imports from shared
+import type { User } from '@shared/schema';
+```
+
+**Prohibited:**
+- ❌ Redefining types in frontend that exist in backend
+- ❌ Using `any` for API responses
+- ❌ Manual type guards when schema types exist
+
+---
+
 ## Testing Approach
 
 ### For Internal Tools (Keep It Practical)
@@ -380,13 +445,25 @@ After implementing each feature:
 5. Ask a team member to try it
 ```
 
-**Automated Testing (Optional):**
-```
-If you add automated tests:
-- Framework: [Jest / Pytest / RSpec]
-- Coverage: Focus on business logic, not everything
-- Run before: Deploying to production
-```
+**Automated Testing (Optional but recommended):**
+
+**Coverage Thresholds (if adding automated tests):**
+| Area | Minimum | Target |
+|------|---------|--------|
+| Business logic | 60% | 75% |
+| Utility functions | 70% | 85% |
+| API endpoints | 60% | 70% |
+
+**"Adequate testing" checklist:**
+- [ ] Happy path tested with realistic data
+- [ ] Error cases tested (invalid input, network failures)
+- [ ] Edge cases for user input (empty, too long, special chars)
+- [ ] API contract validated (request/response shapes)
+
+**Testing philosophy:**
+- Test behavior, not implementation
+- Manual testing is fine for internal tools
+- Add automated tests if bugs become frequent
 
 **Example:**
 ```
@@ -645,16 +722,21 @@ Mitigation: Good filtering and search
 
 ## Revision History
 
-Keep track of major changes to this constitution:
+| Date | Version | Changes | Author |
+|------|---------|---------|--------|
+| [YYYY-MM-DD] | 1.0 | Initial constitution | [Your Name] |
 
+**Rule:** All constitution changes require:
+1. Version number increment
+2. Documented rationale for change
+3. Review of dependent documentation (README, CLAUDE.md)
+
+**Example of tracking changes:**
 ```
-v1.0 - [Date] - Initial version
-- Defined tech stack: Next.js, Supabase, Tailwind
-- Scoped to core CRUD features
-- Deployment on Vercel
-
-v1.1 - [Date] - [What changed]
-- [Changes made]
+v1.1 - 2025-02-15 - Added email notifications
+- Added Resend integration for email
+- Updated feature scope to include notifications
+- Reviewed by: Team Lead
 ```
 
 ---

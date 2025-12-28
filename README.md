@@ -74,6 +74,23 @@ AI-Dev-Orchestrator is a framework for building software with AI that's based on
 
 ---
 
+## 🆕 Recent Updates
+
+**December 2025 - TypeScript Unification & Constitution Enhancements**
+
+The constitution templates have been updated based on 6+ months of real-world usage in the OKM (Optimi Knowledge Manager) project:
+
+- **TypeScript Across Entire Stack** - Constitution templates now mandate TypeScript (strict mode) for both frontend and backend. The original JavaScript-only frontend prohibition was based on 2023-era AI limitations. Current models (Claude Sonnet 4+, GPT-4+) excel at TypeScript.
+- **Type Sharing Patterns** - Added explicit guidance on sharing types between frontend and backend via `shared/schema.ts` to prevent API integration bugs.
+- **Clarified "Simplicity" Principle** - Expanded to explain what simplicity means AND doesn't mean (avoiding common misinterpretations).
+- **AI Model Assumptions** - New section documenting which AI models the framework is designed for (minimum: Claude Sonnet 4 / GPT-4).
+- **Specific Testing Thresholds** - Replaced vague "adequate testing" with concrete coverage targets by area (business logic: 70-85%, utilities: 80-95%, etc.).
+- **Mandatory Version History** - Constitutions now require revision tracking with documented rationale for changes.
+
+**Key insight:** TypeScript type safety reduces bugs more than it increases complexity - simplicity means using proven tools correctly, not avoiding powerful features.
+
+---
+
 ## The Problem This Solves
 
 Common AI coding approach (❌ naive):

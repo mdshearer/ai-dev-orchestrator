@@ -34,6 +34,42 @@ Triggers: /customer [email], @supportbot [question]
 3. **Rate Limits Matter** - Respect external API limits and quotas
 4. **Async by Default** - Use queues and background jobs
 5. **Comprehensive Logging** - Debug issues without user reports
+6. **Simplicity Over Complexity** - Proven tools over cutting-edge experiments
+
+**What "Simplicity" MEANS:**
+- ✅ Choose proven, well-documented tools over cutting-edge experiments
+- ✅ Prefer explicit code over "clever" abstractions
+- ✅ One canonical way to do things, not multiple competing patterns
+- ✅ Readable code over compact code
+- ✅ Boring technology that works over exciting technology that might not
+
+**What "Simplicity" does NOT MEAN:**
+- ❌ Avoiding type safety (TypeScript adds safety, reduces debugging)
+- ❌ Skipping validation libraries (Zod reduces code vs manual validation)
+- ❌ Reinventing wheels to avoid dependencies
+- ❌ Using weaker tools because they have fewer features
+
+**Litmus test:** Will a developer new to the project understand this in 30 seconds?
+
+---
+
+## AI Model Assumptions
+
+This constitution is designed for AI assistants with capabilities of:
+- **Minimum:** Claude Sonnet 4 / GPT-4 / Gemini 1.5 Pro
+- **Recommended:** Claude Opus 4+ for complex architecture decisions
+
+**Assumed capabilities:**
+- Strong TypeScript comprehension and generation
+- Multi-file context understanding (50k+ tokens)
+- Schema-aware code generation
+- Ability to follow explicit constraints
+
+**If using older/smaller models, consider:**
+- More explicit inline comments explaining intent
+- Smaller file sizes (<300 lines)
+- Simpler type hierarchies (avoid deep generics)
+- More frequent checkpoints and reviews
 
 ---
 
@@ -50,7 +86,9 @@ Language: [TypeScript / Python / etc.]
 ```
 Runtime: Node.js 20 (LTS)
 Framework: Hono (edge-native, fast)
-Language: TypeScript (strict mode)
+Language: TypeScript (strict mode enabled)
+File extensions: .ts for all files (no JSX/TSX for agents)
+Type imports: import type { ... } for type-only imports
 Deployment: Cloudflare Workers (edge, low latency)
 ```
 
@@ -200,6 +238,34 @@ Example responses:
 - Error: "⚠️ Couldn't find a customer with that email. Double-check the spelling?"
 - Help: "I can help you with: customer lookup, creating tickets, or answering questions. What do you need?"
 ```
+
+---
+
+## Type Sharing (Full-Stack TypeScript)
+
+**Single Source of Truth:**
+- All data types defined ONCE in `shared/schema.ts` (or `types/`)
+- Agent code imports types from shared location
+- API request/response types never use `any`
+- Webhook payloads typed with schema types
+
+**Pattern:**
+```typescript
+// shared/schema.ts - AUTHORITATIVE
+export type WebhookPayload = { event: string; data: unknown };
+export type User = { id: number; name: string; email: string };
+
+// Agent - imports from shared
+import type { WebhookPayload, User } from './shared/schema';
+
+// External API types
+import type { SlackEvent } from '@slack/bolt';
+```
+
+**Prohibited:**
+- ❌ Using `any` for API responses or webhook payloads
+- ❌ Redefining types that exist in shared schema
+- ❌ Manual type guards when schema types exist
 
 ---
 
@@ -711,6 +777,28 @@ What to test:
 - Error handling
 ```
 
+**Coverage Thresholds:**
+| Area | Minimum | Target |
+|------|---------|--------|
+| Business logic | 70% | 85% |
+| Utility functions | 80% | 95% |
+| API endpoints | 70% | 80% |
+| Webhook handlers | 60% | 75% |
+
+**"Adequate testing" checklist:**
+- [ ] Happy path tested with realistic data
+- [ ] Error cases tested (invalid input, network failures)
+- [ ] Edge cases for user input (empty, too long, special chars)
+- [ ] API contract validated (request/response shapes)
+- [ ] Retry logic tested (exponential backoff)
+- [ ] Rate limiting tested
+
+**Testing philosophy:**
+- Test behavior, not implementation
+- Mock external services (LLMs, APIs)
+- Test error handling paths thoroughly
+- Verify idempotency for retried operations
+
 **Example:**
 ```
 Framework: Vitest
@@ -992,6 +1080,19 @@ User Rights:
 - /delete-my-data command: Deletes conversation history
 - Admins can export user's audit log
 ```
+
+---
+
+## Revision History
+
+| Date | Version | Changes | Author |
+|------|---------|---------|--------|
+| [YYYY-MM-DD] | 1.0 | Initial constitution | [Your Name] |
+
+**Rule:** All constitution changes require:
+1. Version number increment
+2. Documented rationale for change
+3. Review of dependent documentation (README, CLAUDE.md)
 
 ---
 

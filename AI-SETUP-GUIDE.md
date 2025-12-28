@@ -298,7 +298,9 @@ Here's what I recommend for [project type]:
 
 **Frontend:**
 - Framework: [React/Next.js/Vue/etc based on needs]
-- Language: [TypeScript if complex, JavaScript if simple]
+- Language: TypeScript (strict mode enabled) - recommended for all projects
+- File extensions: .tsx for React components, .ts for utilities
+- Type imports: `import type { ... }` for type-only imports
 - Styling: [Tailwind for speed, CSS Modules for control]
 
 **Backend:**

@@ -76,7 +76,9 @@ Open `CONSTITUTION.md` and fill in the sections:
 
 **Frontend:**
 - Framework: React 18
-- Language: TypeScript (strict mode)
+- Language: TypeScript (strict mode enabled)
+- File extensions: .tsx for React components, .ts for utilities
+- Type imports: `import type { ... }` for type-only imports
 - Styling: Tailwind CSS
 - State Management: Zustand
 
