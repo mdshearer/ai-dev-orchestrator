@@ -683,6 +683,190 @@ AI: [Fixes issues]
 You: Run tests, commit with message "feat: add password reset feature"
 ```
 
+## Session Learning System (Self-Improving Sessions)
+
+Claude Code can learn from itself across sessions using a **session learning system** that captures patterns, mistakes, and insights. This prevents repeating the same mistakes and builds institutional memory.
+
+### How It Works
+
+1. **During sessions**: Claude can capture notable learnings in-the-moment
+2. **At session end**: A Stop hook prompts you to run `/reflect`
+3. **Next session**: Learnings are loaded automatically as context
+
+### Setup (One-time, 5 minutes)
+
+The learning system has already been set up globally if you cloned this repo. To set it up manually or for other projects:
+
+#### 1. Global Learning Structure
+
+This applies across ALL repos:
+
+```bash
+# Create global learnings directory
+mkdir -p ~/.claude/learnings
+
+# These files should already exist if you cloned ai-dev-orchestrator:
+# ~/.claude/CLAUDE.md
+# ~/.claude/commands/reflect.md
+# ~/.claude/skills/session-learnings/SKILL.md
+# ~/.claude/learnings/patterns.md
+# ~/.claude/learnings/mistakes.md
+# ~/.claude/learnings/preferences.md
+```
+
+If they don't exist, copy them:
+
+```bash
+cp ~/ai-dev-orchestrator/templates/claude-project-setup/setup-learnings.sh ~/
+# Edit to create global structure instead of project structure
+```
+
+#### 2. Project Learning Structure
+
+For EACH project you want to track learnings:
+
+```bash
+cd ~/my-project
+
+# Run the setup script
+~/ai-dev-orchestrator/templates/claude-project-setup/setup-learnings.sh
+
+# This creates:
+# .claude/CLAUDE.md               (project context)
+# .claude/learnings/insights.md   (project insights)
+# .claude/learnings/decisions.md  (architecture decisions)
+# .claude/learnings/gotchas.md    (project-specific pitfalls)
+```
+
+#### 3. Enable Stop Hook
+
+The Stop hook prompts reflection when ending sessions. It should already be in `~/.claude/settings.json`:
+
+```json
+{
+  "hooks": {
+    "Stop": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "prompt",
+            "prompt": "Before ending this session, take a moment to reflect:\n\n1. Were there any notable patterns, mistakes, or insights worth capturing?\n2. Should any learnings be documented for future sessions?\n\nIf yes, run `/reflect` to capture these learnings. If this was a routine session with nothing notable, you can skip reflection."
+          }
+        ]
+      }
+    ]
+  }
+}
+```
+
+### Using the Learning System
+
+#### During a Session
+
+When Claude notices something worth capturing, it can invoke the **session-learnings skill** automatically:
+
+```
+Claude: I noticed we spent time debugging a null pointer issue.
+        Capturing this as a mistake to avoid...
+
+Captured mistake: "Always check for null before accessing nested properties"
+Location: ~/.claude/learnings/mistakes.md
+```
+
+#### At Session End
+
+When you stop a session, the hook prompts:
+
+```
+Before ending this session, take a moment to reflect:
+
+1. Were there any notable patterns, mistakes, or insights worth capturing?
+2. Should any learnings be documented for future sessions?
+
+If yes, run `/reflect` to capture these learnings.
+```
+
+Then you run:
+
+```bash
+/reflect
+```
+
+Claude will:
+1. Review what was accomplished
+2. Extract patterns, mistakes, preferences, and decisions
+3. Categorize as **global** (all projects) or **project-specific**
+4. Write to the appropriate files
+
+#### Next Session
+
+When you start a new session, learnings are automatically loaded:
+
+```
+Loading context:
+- ~/.claude/CLAUDE.md (global principles)
+- ~/.claude/learnings/patterns.md (47 patterns)
+- ~/.claude/learnings/mistakes.md (23 mistakes to avoid)
+- .claude/CLAUDE.md (project context)
+- .claude/learnings/insights.md (12 insights)
+```
+
+### Learning Categories
+
+| Category | Scope | File | Example |
+|----------|-------|------|---------|
+| **Patterns** | Global | `~/.claude/learnings/patterns.md` | "Use Zod for API validation instead of manual checks" |
+| **Mistakes** | Global | `~/.claude/learnings/mistakes.md` | "Don't forget to await async database calls" |
+| **Preferences** | Global | `~/.claude/learnings/preferences.md` | "User prefers functional components over class components" |
+| **Insights** | Project | `.claude/learnings/insights.md` | "This project's auth flow uses JWT with 24h expiry" |
+| **Decisions** | Project | `.claude/learnings/decisions.md` | "Chose Zustand over Redux for simpler state management" |
+| **Gotchas** | Project | `.claude/learnings/gotchas.md` | "API rate limit is 100 req/min, cache aggressively" |
+
+### Example: Reflection Output
+
+```markdown
+## Session Reflection Complete
+
+### Learnings Captured:
+
+**Global** (applies everywhere):
+- Pattern: Using Zod schemas prevents type mismatches at API boundaries
+- Mistake: Forgot to handle 404 errors in fetch calls - always check response.ok
+- Preference: User prefers explicit error messages over generic ones
+
+**Project-specific** (this repo only):
+- Decision: Chose to use server-side rendering for SEO requirements
+- Gotcha: Database migrations must run before app startup or queries fail
+- Insight: The /api/users endpoint requires admin role, not just auth
+
+### Files Updated:
+- ~/.claude/learnings/patterns.md
+- ~/.claude/learnings/mistakes.md
+- .claude/learnings/decisions.md
+- .claude/learnings/gotchas.md
+
+### Recommendation for next session:
+Continue implementing the user profile page with server-side rendering pattern
+```
+
+### Best Practices
+
+**DO:**
+- ✅ Reflect after sessions with significant learnings
+- ✅ Be specific (vague learnings aren't useful)
+- ✅ Capture mistakes immediately when they waste time
+- ✅ Update existing learnings rather than creating duplicates
+- ✅ Use global learnings for patterns that apply everywhere
+
+**DON'T:**
+- ❌ Force reflection on routine sessions with nothing notable
+- ❌ Capture everything (only notable patterns/mistakes)
+- ❌ Make learnings too specific (they should generalize)
+- ❌ Skip categorization (global vs project matters)
+
+---
+
 ## Global Configuration (All Projects)
 
 To make Claude Code behave consistently across ALL your projects, use global configuration files.

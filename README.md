@@ -89,6 +89,26 @@ The constitution templates have been updated based on 6+ months of real-world us
 
 **Key insight:** TypeScript type safety reduces bugs more than it increases complexity - simplicity means using proven tools correctly, not avoiding powerful features.
 
+**January 2026 - Self-Improving Claude Code Sessions**
+
+Added a **session learning system** that helps Claude Code learn from itself across sessions (inspired by [Developers Digest](https://www.youtube.com/watch?v=-4nUCaMNBR8)):
+
+- **`/reflect` Command** - End-of-session reflection to capture patterns, mistakes, and insights
+- **Session-Learnings Skill** - Auto-invokable skill for in-the-moment learning capture
+- **Global Learnings** - Cross-project patterns stored in `~/.claude/learnings/` (patterns, mistakes, preferences)
+- **Project Learnings** - Repo-specific insights in `.claude/learnings/` (insights, decisions, gotchas)
+- **Stop Hook** - Automatic reflection prompt when ending sessions
+- **Template Structure** - Quick setup for new projects with `setup-learnings.sh`
+
+**The problem it solves:** Without this system, you repeat the same mistakes and give the same instructions across sessions. With it, Claude Code builds institutional memory.
+
+**How it works:**
+1. During work: Claude can invoke the session-learnings skill to capture notable patterns or mistakes
+2. At session end: Stop hook prompts you to run `/reflect`
+3. Next session: Global and project learnings are loaded as context automatically
+
+See [`/guides/claude-code-setup.md`](./guides/claude-code-setup.md) for setup instructions and [`/templates/claude-project-setup/`](./templates/claude-project-setup/) for the template structure.
+
 ---
 
 ## The Problem This Solves
@@ -616,6 +636,10 @@ This framework is open for improvement:
 - GDS Design Principles
 - OWASP Security Standards
 - Constitutional AI (Anthropic)
+
+**Session Learning System:**
+- Inspired by [Developers Digest YouTube channel](https://www.youtube.com/watch?v=-4nUCaMNBR8)
+- Implementation adapted for ai-dev-orchestrator workflow
 
 See [RESEARCH-ORIGIN.md](./RESEARCH-ORIGIN.md) for full citations
 
