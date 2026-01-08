@@ -72,6 +72,8 @@ AI-Dev-Orchestrator is a framework for building software with AI that's based on
 
 **The result:** Code that works, stays consistent, and doesn't go overboard.
 
+> **Note:** This is the **software development** implementation of the [AI Workflow Orchestrator](https://github.com/Optiminz/ai-workflow-orchestrator) universal framework. The same pattern works for grant writing, content creation, product design, and other domains. See the [Software Pattern Visual](./SOFTWARE-PATTERN-VISUAL.md) for the software-specific guide, or the [Universal Pattern Visual](https://github.com/Optiminz/ai-workflow-orchestrator/blob/main/core/universal-pattern-visual.md) to see cross-domain applications.
+
 ---
 
 ## 🆕 Recent Updates
